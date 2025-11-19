@@ -10,6 +10,8 @@ namespace Veterinary.Shared.Entities
 {
     public  class Owner
     {
+
+        //Name
         public int Id { get; set; }
 
         [Display(Name = "Documento de identidad")]

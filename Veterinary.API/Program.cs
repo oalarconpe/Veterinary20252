@@ -83,9 +83,20 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 var app = builder.Build();
 
+// Migrar la base de datos y sembrar datos iniciales
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<DataContext>();
+    if (dbContext.Database.IsRelational())
+    {
+        dbContext.Database.Migrate();
+    }
+
+}
 
 
-SeedData(app);
+    SeedData(app);
 
 void SeedData(WebApplication app)
 {

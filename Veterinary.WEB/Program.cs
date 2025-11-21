@@ -12,7 +12,7 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 //Consumo de api
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7000/") });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://veterinaryapi2025-ghbnanfpc2fudhdx.canadacentral-01.azurewebsites.net/") });
 
 builder.Services.AddScoped<IRepository, Repository>();
 builder.Services.AddSweetAlert2();
